@@ -1,26 +1,131 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-cinzel), serif;
+
+  --color-ocean-surface: var(--ocean-surface);
+  --color-ocean-shallow: var(--ocean-shallow);
+  --color-ocean-mid: var(--ocean-mid);
+  --color-ocean-deep: var(--ocean-deep);
+  --color-ocean-abyss: var(--ocean-abyss);
+
+  --color-accent-seafoam: var(--accent-seafoam);
+  --color-accent-treasure: var(--accent-treasure);
+  --color-accent-coral: var(--accent-coral);
+  --color-accent-warning: var(--accent-warning);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-ui-background: var(--ui-background);
+  --color-ui-surface: var(--ui-surface);
+  --color-ui-card: var(--ui-card);
+  --color-ui-border: var(--ui-border);
+
+  --color-background: var(--ui-background);
+  --color-surface: var(--ui-surface);
+  --color-card: var(--ui-card);
+  --color-border: var(--ui-border);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Ocean Colors */
+  --ocean-surface: #00a8e8;
+  --ocean-shallow: #0077b6;
+  --ocean-mid: #023e8a;
+  --ocean-deep: #03045e;
+  --ocean-abyss: #010216;
+
+  /* Accent Colors */
+  --accent-seafoam: #70e000;
+  --accent-treasure: #ffd166;
+  --accent-coral: #ff6b6b;
+  --accent-warning: #f77f00;
+
+  /* Text Colors */
+  --text-primary: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --text-muted: #6c757d;
+
+  /* UI Colors */
+  --ui-background: #010216;
+  --ui-surface: #070f2b;
+  --ui-card: #1b1a55;
+  --ui-border: #535c91;
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadow Presets */
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --shadow-glow: 0 0 20px rgba(0, 168, 232, 0.4);
+  --shadow-deep: 0 20px 50px rgba(1, 2, 22, 0.8);
+
+  /* Animation Durations */
+  --duration-fast: 200ms;
+  --duration-medium: 500ms;
+  --duration-slow: 800ms;
+  --duration-float: 3000ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Modern Reset */
+*, ::before, ::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--ocean-abyss);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Utility Classes */
+.glass {
+  background: rgba(7, 15, 43, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(83, 92, 145, 0.3);
+  box-shadow: var(--shadow-glass);
+}
+
+.ocean-gradient {
+  background: linear-gradient(180deg, var(--ocean-surface) 0%, var(--ocean-shallow) 30%, var(--ocean-mid) 60%, var(--ocean-abyss) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--ocean-surface) 0%, var(--accent-seafoam) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow {
+  box-shadow: var(--shadow-glow);
+}
+
+.page-background {
+  background-color: var(--ocean-abyss);
+  background-image: radial-gradient(circle at 50% 0%, rgba(0, 168, 232, 0.15), transparent 70%);
 }
