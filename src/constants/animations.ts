@@ -1,11 +1,20 @@
+import { MOTION } from './motion';
+
+/**
+ * Legacy Animation Tokens
+ * -----------------------
+ * Maintained for backward compatibility.
+ * Re-exports milliseconds derived from the unified `MOTION` system (`@/constants/motion`).
+ */
+
 export const ANIMATION_DURATIONS = {
-  instant: 0,
-  fast: 200,
-  medium: 500,
-  slow: 800,
-  float: 3000,
-  drift: 6000,
-  wave: 10000,
+  instant: MOTION.duration.instant * 1000,
+  fast: MOTION.duration.fast * 1000,
+  medium: MOTION.duration.normal * 1000,
+  slow: MOTION.duration.slow * 1000,
+  float: MOTION.duration.float * 1000,
+  drift: MOTION.duration.drift * 1000,
+  wave: MOTION.duration.wave * 1000,
 } as const;
 
 export const EASING_PRESETS = {
